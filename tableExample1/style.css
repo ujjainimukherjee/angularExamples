@@ -1,0 +1,36 @@
+#content{
+	width:500px;
+	border:1px solid gray;
+}
+
+#stock_table{  
+  width:100%;  
+}
+
+#stock_table th{
+   padding:8px;
+   border-bottom:2px solid #ebebeb;
+   color:gray;   
+   font-weight:400;
+   text-align:center;
+   
+}
+
+#stock_table tr td{
+  padding:5px 0 5px 5px;
+  text-align:center;
+}
+#stock_table a{
+	text-decoration:none;
+}
+
+.selected { background-color: gold !important;}
+.odd {
+  background-color: #F0FFF0;
+}
+.even {
+  background-color: #fff;
+}
+
+
+

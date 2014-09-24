@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang='en' ng-app='tableApp'>
+<head>
+	<title>Table Example</title>
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.js'></script> 	
+	<script src='js/controller.js' type='text/javascript'></script>
+     <script src='js/filters.js' type='text/javascript'></script>
+     <link href='style.css' type='text/css' rel='stylesheet' />
+
+</head>	
+<body ng-controller='tableCtrl'>
+	<!-- Start of content -->
+	<div id="content">		
+	  <table id='stock_table'>
+	    <thead>
+	      <tr>
+	        <th>
+	        	<a href="#" ng-click="predicate = 'symbol';reverse=!reverse">
+	        	Symbol
+	        	</a>
+	        </th>
+	        <th>
+	          <a href="#" ng-click="predicate = 'price';reverse=!reverse">
+	        	Price
+	          </a>
+	        </th> 
+	        <th>
+	          <a href="#" ng-click="predicate = 'dollarChange';reverse=!reverse">
+	        	Change $
+	          </a>
+	        </th>
+	        <th>
+	           <a href="#" ng-click="predicate = 'percentChange';reverse=!reverse">
+	        	Change %
+	          </a>	           
+	        </th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	    <tr ng-repeat="security in securityData | orderBy:predicate:reverse">
+	        <td ng-click='selectedStock($index)' ng-class='{selected: $index==selectedRow}' ng-class-odd="'odd'" ng-class-even="'even'">{{security.symbol}}</td>
+	        <td ng-click='selectedStock($index)' ng-class='{selected: $index==selectedRow}' ng-class-odd="'odd'" ng-class-even="'even'">{{security.price | currency}}</td>
+	        <td ng-click='selectedStock($index)' ng-class='{selected: $index==selectedRow}' dollar-change-directive ng-class-odd="'odd'" ng-class-even="'even'">{{security.dollarChange | formatDollarChange}}</td>
+	        <td ng-click='selectedStock($index)' ng-class='{selected: $index==selectedRow}' dollar-change-directive ng-class-odd="'odd'" ng-class-even="'even'">{{security.percentChange}}</td>                
+	      </tr>
+	    </tbody> 
+	  </table>
+	</div>
+	<!-- End of content -->
+</body>	
