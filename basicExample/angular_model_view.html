@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myApp'>
+	<head>
+		<title>Data binding from Model to View</title>
+	</head>
+	<body ng-controller='greetingsController'>
+		<p>{{greetings}} {{firstname}}  !</p>
+		<p><input ng-model='firstname'/></p>
+		
+		<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.js'></script>
+		<script>
+			var myApp = angular.module('myApp', []);
+			myApp.controller('greetingsController', ['$scope', 
+			         function($scope){
+			         	$scope.greetings = 'Hello';
+			         }
+			   ]				
+		);		
+		</script>
+	</body>
+</html>
