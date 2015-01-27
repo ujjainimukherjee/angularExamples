@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" ng-app='myApp'>
 	<head>
-		<title>User entered Data binding to View</title>
+		<title>Data binding from Model to View</title>
 	</head>
-	<body ng-controller='greetingsController'>
-		<p>{{greetings}} {{firstname}}  !</p>
-		<p><input ng-model='firstname'/></p>
+	<body ng-controller='greetingsController as ctrl'>
+		<p>{{ctrl.greetings}} {{ctrl.firstname}}  !</p>
+		<p><input ng-model='ctrl.firstname'/></p>
 		
 		<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.js'></script>
 		<script>
-			var myApp = angular.module('myApp', []);
-			myApp.controller('greetingsController', ['$scope', 
-			         function($scope){
-			         	$scope.greetings = 'Hello';
-			         	$scope.firstname = 'user';
+		angular.module('myApp', [])
+			   .controller('greetingsController', [
+			         function(){
+			         	this.greetings = 'Hello';
+			         	this.firstname = 'user';			         	
 			         }
 			   ]				
 		);		
